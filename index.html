@@ -122,6 +122,7 @@ try {
   if (chosen === "en" || (!chosen && !bot && !/^pt\b/i.test(first))) location.replace("/en/");
 } catch (e) {}
 </script>
+<script>if (/\/index\.html$/.test(location.pathname)) history.replaceState(null, "", location.pathname.replace(/index\.html$/, "") + location.search + location.hash);</script>
 <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
 <style>
 :root {
