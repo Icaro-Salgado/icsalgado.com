@@ -114,6 +114,14 @@
   }
 }
 </script>
+<script>
+try {
+  var chosen = localStorage.getItem("lang");
+  var bot = /bot|crawl|spider|slurp|facebookexternalhit|linkedinbot|whatsapp/i.test(navigator.userAgent);
+  var first = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+  if (chosen === "en" || (!chosen && !bot && !/^pt\b/i.test(first))) location.replace("/en/");
+} catch (e) {}
+</script>
 <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
 <style>
 :root {
@@ -246,7 +254,7 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: 13p
     <div class="nav-links">
       <nav aria-label="Seções"><ul><li><a href="#about">Sobre</a></li><li><a href="#experience">Experiência</a></li><li><a href="#skills">Competências</a></li><li><a href="#education">Formação</a></li><li><a href="#contact">Contato</a></li></ul></nav>
       <details class="menu"><summary>Menu</summary><ul onclick="this.parentNode.open = false"><li><a href="#about">Sobre</a></li><li><a href="#experience">Experiência</a></li><li><a href="#skills">Competências</a></li><li><a href="#education">Formação</a></li><li><a href="#contact">Contato</a></li></ul></details>
-      <a class="lang" href="en/index.html" hreflang="en-US" lang="en-US" title="Read in English">English</a>
+      <a class="lang" href="/en/" hreflang="en-US" lang="en-US" title="Read in English" onclick="try { localStorage.setItem('lang', 'en'); } catch (e) {}">English</a>
       <button class="theme" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro" onclick="toggleTheme()"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </div>
