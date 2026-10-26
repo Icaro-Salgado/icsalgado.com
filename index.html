@@ -21,11 +21,6 @@
 <meta property="og:image:alt" content="Ícaro Salgado, Engenheiro de Software Sênior">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -122,6 +117,11 @@ try {
   if (chosen === "en" || (!chosen && !bot && !/^pt\b/i.test(first))) location.replace("/en/");
 } catch (e) {}
 </script>
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>if (/\/index\.html$/.test(location.pathname)) history.replaceState(null, "", location.pathname.replace(/index\.html$/, "") + location.search + location.hash);</script>
 <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
 <style>
@@ -155,7 +155,7 @@ svg { width: 17px; height: 17px; flex: none; }
 .nav { position: sticky; top: 0; z-index: 10; background: var(--nav-bg);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 20px; }
-.brand { font-weight: 600; color: var(--fg); }
+.brand { font-weight: 600; color: var(--fg); white-space: nowrap; }
 .brand:hover { text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav nav ul { display: flex; gap: 22px; margin: 0; padding: 0; list-style: none; font-size: 14px; }
@@ -226,6 +226,43 @@ h3 { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.4; }
 .contact .actions { margin-top: 20px; }
 .small-link { display: inline-block; margin-top: 16px; font-size: 14px; color: var(--dim); }
 
+/* páginas internas e blog */
+.page-head { padding: 64px 0 0; }
+.page-head .wrap { display: flex; gap: 24px; align-items: center; }
+.page-head .portrait { width: 96px; height: 96px; }
+.lead { margin: 6px 0 0; color: var(--muted); font-size: 17px; }
+.page-body { padding: 36px 0 72px; }
+.prose { font-size: 17px; }
+.prose p, .prose ul, .prose ol, .prose blockquote, .prose pre, .prose table { margin: 0 0 18px; }
+.prose p, .prose li, .prose td { color: var(--muted); }
+.prose li { margin-bottom: 6px; }
+.prose h2 { margin: 40px 0 12px; font-size: 22px; }
+.prose h3 { margin: 28px 0 8px; }
+.prose strong { color: var(--fg); font-weight: 600; }
+.prose a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
+.prose code { font: 14.5px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--fg);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
+.prose pre { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px;
+  overflow-x: auto; }
+.prose pre code { background: none; border: 0; padding: 0; font-size: 14px; }
+.prose blockquote { margin-left: 0; padding: 2px 0 2px 16px; border-left: 3px solid var(--accent); }
+.prose .actions { margin-top: 32px; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+.prose th, .prose td { padding: 8px 12px 8px 0; text-align: left; border-bottom: 1px solid var(--line); }
+.prose th { color: var(--fg); font-weight: 600; }
+.posts { list-style: none; margin: 0; padding: 0; }
+.posts li { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.posts li:first-child { padding-top: 0; }
+.posts li:last-child { border-bottom: 0; }
+.posts h2 { margin: 2px 0 4px; font-size: 19px; }
+.posts h2 a { color: var(--fg); }
+.posts p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.post-meta { margin: 0 0 6px; font-size: 14px; color: var(--dim); }
+.tag { display: inline-block; margin-left: 8px; padding: 0 7px; font-size: 11.5px; line-height: 18px;
+  border: 1px solid var(--line); border-radius: 999px; color: var(--dim); vertical-align: 1px; }
+.back { display: inline-block; margin-top: 24px; font-size: 15px; }
+.nav nav a[aria-current="page"] { color: var(--fg); }
+
 footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: 13px; color: var(--dim); }
 
 @media (max-width: 760px) {
@@ -235,6 +272,8 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: 13p
   .intro { padding: 40px 0 36px; }
   .intro .wrap { flex-direction: column; align-items: flex-start; gap: 20px; }
   .portrait { width: 104px; height: 104px; }
+  .page-head { padding-top: 40px; }
+  .page-head .portrait { width: 72px; height: 72px; }
   h1 { font-size: 32px; }
   .job-head, .edu li { flex-direction: column; gap: 2px; }
   .rows > div { grid-template-columns: 1fr; gap: 2px; }
@@ -251,10 +290,10 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: 13p
 <body>
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top">Ícaro Salgado</a>
+    <a class="brand" href="/">Ícaro Salgado</a>
     <div class="nav-links">
-      <nav aria-label="Seções"><ul><li><a href="#about">Sobre</a></li><li><a href="#experience">Experiência</a></li><li><a href="#skills">Competências</a></li><li><a href="#education">Formação</a></li><li><a href="#contact">Contato</a></li></ul></nav>
-      <details class="menu"><summary>Menu</summary><ul onclick="this.parentNode.open = false"><li><a href="#about">Sobre</a></li><li><a href="#experience">Experiência</a></li><li><a href="#skills">Competências</a></li><li><a href="#education">Formação</a></li><li><a href="#contact">Contato</a></li></ul></details>
+      <nav aria-label="Seções"><ul><li><a href="/about/">Sobre</a></li><li><a href="#experience">Experiência</a></li><li><a href="#skills">Competências</a></li><li><a href="#education">Formação</a></li><li><a href="#contact">Contato</a></li></ul></nav>
+      <details class="menu"><summary>Menu</summary><ul onclick="this.parentNode.open = false"><li><a href="/about/">Sobre</a></li><li><a href="#experience">Experiência</a></li><li><a href="#skills">Competências</a></li><li><a href="#education">Formação</a></li><li><a href="#contact">Contato</a></li></ul></details>
       <a class="lang" href="/en/" hreflang="en-US" lang="en-US" title="Read in English" onclick="try { localStorage.setItem('lang', 'en'); } catch (e) {}">English</a>
       <button class="theme" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro" onclick="toggleTheme()"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
@@ -264,13 +303,13 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: 13p
 <main id="top">
   <section class="intro">
     <div class="wrap">
-      <img class="portrait" src="assets/portrait.webp" alt="Foto de Ícaro Salgado" width="132" height="132">
+      <img class="portrait" src="/assets/portrait.webp" alt="Foto de Ícaro Salgado" width="132" height="132">
       <div>
         <h1>Ícaro Salgado</h1>
         <p class="role">Engenheiro de Software Sênior</p>
         <p class="meta">Mercado Livre · São Paulo, SP, Brasil</p>
         <div class="actions">
-          <a class="btn primary" href="Icaro-Salgado-Curriculo-PT.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Baixar currículo</a>
+          <a class="btn primary" href="/Icaro-Salgado-Curriculo-PT.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Baixar currículo</a>
           <a class="btn" href="https://www.linkedin.com/in/icarosalgado" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
           <a class="btn" href="https://github.com/Icaro-Salgado" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
         </div>
@@ -278,9 +317,9 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: 13p
     </div>
   </section>
 
-  <section class="block" id="about">
+  <section class="block" id="summary">
     <div class="wrap about">
-      <h2>Sobre</h2>
+      <h2>Resumo</h2>
       <p>Sou engenheiro de software sênior no Mercado Livre, onde atuo no time do Carrinho de Compras. Trabalho com desenvolvimento backend, principalmente em Java e Spring, em um modelo full cycle, no qual o próprio time conduz cada entrega desde o desenho da solução até a operação em produção.</p>
       <p>Nos últimos anos, participei da modernização da arquitetura do Carrinho, realizada em três etapas: a migração do backend para uma nova plataforma comum a todas as áreas de negócio, a adoção de renderização nativa no frontend e a separação da infraestrutura por país. Liderei a primeira delas, a migração do backend, um trabalho que contribuiu diretamente para minha promoção a engenheiro sênior.</p>
       <p>Ingressei no Mercado Livre em 2022, no time de Growth do Mercado Pago, onde participei da migração de um sistema monolítico para microsserviços. Anteriormente, atuei como desenvolvedor Python na Naia Capital e como estagiário de ciência de dados no ETAPA.</p>
@@ -359,7 +398,7 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: 13p
         <a class="btn" href="https://www.linkedin.com/in/icarosalgado" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
         <a class="btn" href="https://github.com/Icaro-Salgado" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
       </div>
-      <a class="small-link" href="Icaro-Salgado-Resume-EN.pdf" download>Currículo em inglês (PDF)</a>
+      <a class="small-link" href="/Icaro-Salgado-Resume-EN.pdf" download>Currículo em inglês (PDF)</a>
     </div>
   </section>
 </main>
